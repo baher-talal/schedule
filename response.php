@@ -31,30 +31,33 @@
 
 <script>
 $(document).ready(function(){
-  // Fetch meeting requests from server and populate table
-  $.get("fetch_meeting_requests.php", function(data){
-    var meetings = JSON.parse(data);
-    var tbody = $('#meetingTable tbody');
-    meetings.forEach(function(meeting){
-      var tr = $('<tr>');
-      // tr.append('<td>' + meeting.id + '</td>');
-      tr.append('<td>' + meeting.title + '</td>');
-      tr.append('<td>' + meeting.date + '</td>');
-      tr.append('<td>' + meeting.time + '</td>');
-      var td = $('<td>');
-      var acceptBtn = $('<button>').addClass('btn btn-success').text('Accept').click(function(){
-        updateResponse(meeting.id, 'accepted');
+  function fetchMeetingRequests(){
+    $.get("fetch_meeting_requests.php", function(data){
+      var meetings = JSON.parse(data);
+      meetings.forEach(function(meeting){
+        if ($('#meetingTable tbody tr[data-id="' + meeting.id + '"]').length === 0) {
+          var tr = $('<tr>').attr('data-id', meeting.id);
+          tr.append('<td>' + meeting.title + '</td>');
+          tr.append('<td>' + meeting.date + '</td>');
+          tr.append('<td>' + meeting.time + '</td>');
+          var td = $('<td>');
+          var acceptBtn = $('<button>').addClass('btn btn-success').text('Accept').click(function(){
+            updateResponse(meeting.id, 'accepted');
+          });
+          var rejectBtn = $('<button>').addClass('btn btn-danger').text('Reject').click(function(){
+            updateResponse(meeting.id, 'rejected');
+          });
+          td.append(acceptBtn).append(rejectBtn);
+          tr.append(td);
+          $('#meetingTable tbody').append(tr);
+        }
       });
-      var rejectBtn = $('<button>').addClass('btn btn-danger').text('Reject').click(function(){
-        updateResponse(meeting.id, 'rejected');
-      });
-      td.append(acceptBtn).append(rejectBtn);
-      tr.append(td);
-      tbody.append(tr);
     });
-  });
+  }
 
-  // Function to update response in database
+  fetchMeetingRequests();
+  setInterval(fetchMeetingRequests, 1000);
+
   function updateResponse(id, response){
     $.ajax({
       url: 'update_response.php',
@@ -64,8 +67,6 @@ $(document).ready(function(){
       success: function(data){
         alert("Your response is saved");
         location.reload();
-        // Optionally, you can remove the row from the table upon successful response
-        // $('#meetingTable tbody tr').remove(':contains("' + id + '")');
       },
       error: function(xhr, status, error){
         console.error(xhr.responseText);
