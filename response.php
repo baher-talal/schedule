@@ -13,7 +13,7 @@
 <table id="meetingTable" border="1">
   <thead>
     <tr>
-      <th>Meeting ID</th>
+      <!-- <th>Meeting ID</th> -->
       <th>Title</th>
       <th>Date</th>
       <th>Time</th>
@@ -33,7 +33,7 @@ $(document).ready(function(){
     var tbody = $('#meetingTable tbody');
     meetings.forEach(function(meeting){
       var tr = $('<tr>');
-      tr.append('<td>' + meeting.id + '</td>');
+      // tr.append('<td>' + meeting.id + '</td>');
       tr.append('<td>' + meeting.title + '</td>');
       tr.append('<td>' + meeting.date + '</td>');
       tr.append('<td>' + meeting.time + '</td>');
