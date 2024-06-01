@@ -12,6 +12,11 @@
 
 <h2>Meeting Requests</h2>
 
+<audio id="alertSound">
+  <source src="notification_sound.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 <div class="container">
   <table id="meetingTable" class="table table-bordered">
     <thead>
@@ -50,6 +55,9 @@ $(document).ready(function(){
           td.append(acceptBtn).append(rejectBtn);
           tr.append(td);
           $('#meetingTable tbody').append(tr);
+
+          // Play alert sound when a new meeting is added
+          playAlertSound();
         }
       });
     });
@@ -72,6 +80,11 @@ $(document).ready(function(){
         console.error(xhr.responseText);
       }
     });
+  }
+
+  function playAlertSound() {
+    var audio = document.getElementById("alertSound");
+    audio.play();
   }
 });
 </script>
