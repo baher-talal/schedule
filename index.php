@@ -32,7 +32,7 @@
       .then(response => response.json())
       .then(data => {
         alert('تم إرسال الدعوة بنجاح')
-        window.location.href = "response.php";
+        // window.location.href = "response.php";
       })
       .catch(error => console.error('Error:', error));
   }
