@@ -57,7 +57,7 @@
             tr.append('<td class="text-center">' + meeting.time + '</td>');
             var td = $('<td class="text-center">');
             var acceptBtn = $('<button>').addClass('btn btn-success mx-3').text('قبول').click(function() {
-              updateResponse(meeting.id, 'ي');
+              updateResponse(meeting.id, 'accepted');
             });
             var rejectBtn = $('<button>').addClass('btn btn-danger mx-3').text('رفض').click(function() {
               updateResponse(meeting.id, 'rejected');
