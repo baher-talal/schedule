@@ -1,0 +1,50 @@
+First Name = testtest
+usname = testtesttest
+email = baher.ivas@gmail.com
+pass = ivas123456
+
+/* Start SCSS Complier */
+
+	sass --watch css/flat/layout.scss:css/styles.css
+
+/* End SCSS Complier */
+
+/* Start Git To Push */
+
+	git init
+
+	git status
+
+	git add .
+
+	git commit -m "YOUR MESSEGE"
+
+	git push origin master 
+
+/* End Git To Push */
+
+/* Start Git To Make Brunch */
+
+	git checkout -b baher
+
+	git branch 
+
+	git checkout NEW_BRANCH
+
+/* End Git To Make Brunch */
+
+/* Start Git To Reset From Master Branch */
+	git fetch --all 
+	git reset --hard origin/master
+	git pull origin master
+_______________________________________
+	git push -f origin baher
+	git push origin baher --force
+
+/* End Git To Reset From Master Branch */
+
+
+php artisan key:generate
+
+php artisan migrate --seed
+php7 artisan migrate --seed
