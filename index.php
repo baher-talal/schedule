@@ -81,6 +81,7 @@
           <th>التاريخ</th>
           <th>الوقت</th>
           <th>الحالة</th>
+          <th>حذف</th>
         </tr>
       </thead>
       <tbody>
@@ -101,6 +102,14 @@
             const cell = row.insertCell();
             cell.textContent = key === 'responseStatus' ? value : value;
           });
+          const deleteCell = row.insertCell();
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Delete';
+          deleteButton.addEventListener('click', () => {
+            // Add logic here to delete the corresponding response
+            row.remove(); // Example: Remove the row from the table
+          });
+          deleteCell.appendChild(deleteButton);
         });
       })
       .catch(error => console.error('Error:', error));
