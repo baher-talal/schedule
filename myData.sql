@@ -5,6 +5,7 @@ USE MeetingDB;
 CREATE TABLE Meetings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
+    note TEXT,
     date DATE,
     time TIME
 );

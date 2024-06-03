@@ -31,6 +31,7 @@
           <tr>
             <!-- <th>Meeting ID</th> -->
             <th class="text-center">الأسم</th>
+            <th class="text-center">نبذة</th>
             <th class="text-center">التاريخ</th>
             <th class="text-center">الوقت</th>
             <th></th>
@@ -53,6 +54,7 @@
           if ($('#meetingTable tbody tr[data-id="' + meeting.id + '"]').length === 0) {
             var tr = $('<tr>').attr('data-id', meeting.id);
             tr.append('<td class="text-center">' + meeting.title + '</td>');
+            tr.append('<td class="text-center">' + meeting.note + '</td>');
             tr.append('<td class="text-center">' + meeting.date + '</td>');
             tr.append('<td class="text-center">' + meeting.time + '</td>');
             var td = $('<td class="text-center">');

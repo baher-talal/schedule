@@ -15,6 +15,7 @@
   <script>
   function sendInvitation() {
     const title = document.getElementById('meetingTitle').value;
+    const note = document.getElementById('meetingNote').value;
     const date = document.getElementById('meetingDate').value;
     const time = document.getElementById('meetingTime').value;
 
@@ -25,6 +26,7 @@
         },
         body: JSON.stringify({
           title,
+          note,
           date,
           time
         })
@@ -44,15 +46,19 @@
     <h1 class="text-center">إنشاء دعوة اجتماع</h1>
     <hr class="m-5">
     <form onsubmit="event.preventDefault(); sendInvitation();" class="row g-3">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <label for="meetingTitle" class="form-label">الأسم:</label>
         <input type="text" id="meetingTitle" name="meetingTitle" class="form-control" required>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
+        <label for="meetingNote" class="form-label">نبذة:</label>
+        <input type="text" id="meetingNote" name="meetingNote" class="form-control" required>
+      </div>
+      <div class="col-md-6">
         <label for="meetingDate" class="form-label">التاريخ:</label>
         <input type="date" id="meetingDate" name="meetingDate" class="form-control" required>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <label for="meetingTime" class="form-label">الوقت:</label>
         <input type="time" id="meetingTime" name="meetingTime" class="form-control" required>
       </div>

@@ -10,12 +10,13 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $data = json_decode(file_get_contents('php://input'), true);
 
 $title = $data['title'];
+$note = $data['note'];
 $date = $data['date'];
 $time = $data['time'];
 
-$query = "INSERT INTO Meetings (title, date, time) VALUES (?, ?, ?)";
+$query = "INSERT INTO Meetings (title, note, date, time) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
-$stmt->execute([$title, $date, $time]);
+$stmt->execute([$title, $note, $date, $time]);
 
 $response = ['status' => 'success', 'message' => 'Meeting invitation sent successfully'];
 echo json_encode($response);
