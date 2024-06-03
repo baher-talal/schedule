@@ -34,10 +34,13 @@
       .then(response => response.json())
       .then(data => {
         alert('تم إرسال الدعوة بنجاح')
-        // window.location.href = "response.php";
-        location.reload();
+        window.location.href = "index.php";
+        // location.reload();
       })
       .catch(error => console.error('Error:', error));
+
+      fetchMeetingRequests();
+      setInterval(fetchMeetingRequests, 2000);
   }
   </script>
 </head>

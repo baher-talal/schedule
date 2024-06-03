@@ -59,10 +59,10 @@
             tr.append('<td class="text-center">' + meeting.time + '</td>');
             var td = $('<td class="text-center">');
             var acceptBtn = $('<button>').addClass('btn btn-success mx-3').text('قبول').click(function() {
-              updateResponse(meeting.id, 'accepted');
+              updateResponse(meeting.id, 'تم القبول');
             });
             var rejectBtn = $('<button>').addClass('btn btn-danger mx-3').text('رفض').click(function() {
-              updateResponse(meeting.id, 'rejected');
+              updateResponse(meeting.id, 'تم الرفض');
             });
             td.append(acceptBtn).append(rejectBtn);
             tr.append(td);
