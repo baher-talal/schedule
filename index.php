@@ -35,6 +35,7 @@
       .then(data => {
         alert('تم إرسال الدعوة بنجاح')
         // window.location.href = "response.php";
+        location.reload();
       })
       .catch(error => console.error('Error:', error));
   }
@@ -68,8 +69,42 @@
     </form>
   </div>
 
+  <div class="container mt-5">
+    <h1 class="text-center">جميع الاستجابات</h1>
+    <hr class="m-5">
+    <table id="responseTable" class="text-center table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>رقم</th>
+          <th>الأسم</th>
+          <th>نبذة</th>
+          <th>التاريخ</th>
+          <th>الوقت</th>
+          <th>الحالة</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('fetch_form_responses.php')
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector('#responseTable tbody');
+        data.forEach(response => {
+          const row = tableBody.insertRow();
+          Object.entries(response).forEach(([key, value]) => {
+            const cell = row.insertCell();
+            cell.textContent = key === 'responseStatus' ? value : value;
+          });
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
 </body>
 
 </html>

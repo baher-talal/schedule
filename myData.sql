@@ -7,7 +7,9 @@ CREATE TABLE Meetings (
     title VARCHAR(255),
     note TEXT,
     date DATE,
-    time TIME
+    time TIME,
+    responseStatus VARCHAR(255)
+
 );
 
 CREATE TABLE Responses (
