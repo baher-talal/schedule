@@ -91,7 +91,26 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+    function updateResponse(id) {
+      $.ajax({
+        url: 'delete_response.php',
+        type: 'POST',
+        data: JSON.stringify({
+          id: id
+        }),
+        contentType: 'application/json',
+        success: function(data) {
+          // alert("تم الحفظ");
+          // location.reload();
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr.responseText);
+        }
+      });
+    }
+
     fetch('fetch_form_responses.php')
       .then(response => response.json())
       .then(data => {
@@ -107,7 +126,8 @@
           deleteButton.textContent = 'Delete';
           deleteButton.addEventListener('click', () => {
             // Add logic here to delete the corresponding response
-            row.remove(); // Example: Remove the row from the table
+            row.remove();
+            updateResponse(response.id);
           });
           deleteCell.appendChild(deleteButton);
         });

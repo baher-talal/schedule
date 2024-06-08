@@ -10,12 +10,11 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $data = json_decode(file_get_contents('php://input'), true);
 
 $id = $data['id'];
-$response = $data['response'];
 
-$query = "INSERT INTO responses (meeting_id, response) VALUES (?, ?)";
+$query = "DELETE FROM meetings WHERE id = ?";
 $stmt = $conn->prepare($query);
-$stmt->execute([$id, $response]);
+$stmt->execute([$id]);
 
-$response = ['status' => 'success', 'message' => 'Response recorded successfully'];
+$response = ['status' => 'success', 'message' => 'Meeting deleted successfully'];
 echo json_encode($response);
 ?>

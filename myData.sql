@@ -14,6 +14,4 @@ CREATE TABLE Meetings (
 
 CREATE TABLE Responses (
     meeting_id INT,
-    response VARCHAR(50),
-    FOREIGN KEY (meeting_id) REFERENCES Meetings(id)
-);
+    response VARCHAR(50)
