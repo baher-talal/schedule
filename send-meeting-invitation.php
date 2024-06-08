@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost'; // or your host
-$dbname = 'MeetingDB2';
+$dbname = 'meetingdb';
 $username = 'root';
 $password = '';
 
@@ -14,7 +14,7 @@ $note = $data['note'];
 $date = $data['date'];
 $time = $data['time'];
 
-$query = "INSERT INTO Meetings (title, note, date, time) VALUES (?, ?, ?, ?)";
+$query = "INSERT INTO meetings (title, note, date, time) VALUES (?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
 $stmt->execute([$title, $note, $date, $time]);
 

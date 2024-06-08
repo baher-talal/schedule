@@ -11,8 +11,8 @@
     direction: rtl;
   }
   </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
 </head>
 
 <body>
@@ -26,15 +26,15 @@
     </audio>
 
     <div class="container">
-      <table id="meetingTable" class="table table-bordered table-hover">
+      <table id="meetingTable" class="table table-bordered table-hover text-center">
         <thead>
           <tr>
             <!-- <th>Meeting ID</th> -->
-            <th class="text-center">الأسم</th>
-            <th class="text-center">نبذة</th>
-            <th class="text-center">التاريخ</th>
-            <th class="text-center">الوقت</th>
-            <th></th>
+            <th>الأسم</th>
+            <th>نبذة</th>
+            <th>التاريخ</th>
+            <th>الوقت</th>
+            <th>الحالة</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +45,7 @@
   </div>
 
 
+  <script src="jquery.min.js"></script>
   <script>
   $(document).ready(function() {
     function fetchMeetingRequests() {
@@ -88,7 +89,7 @@
         }),
         contentType: 'application/json',
         success: function(data) {
-          alert("تم الحفظ");
+          // alert("تم الحفظ");
           location.reload();
         },
         error: function(xhr, status, error) {

@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost'; // or your host
-$dbname = 'MeetingDB2';
+$dbname = 'meetingdb';
 $username = 'root';
 $password = '';
 
@@ -12,7 +12,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $meetingId = $data['meetingId'];
 $response = $data['response'];
 
-$query = "INSERT INTO Responses (meeting_id, response) VALUES (?, ?)";
+$query = "INSERT INTO responses (meeting_id, response) VALUES (?, ?)";
 $stmt = $conn->prepare($query);
 $stmt->execute([$meetingId, $response]);
 

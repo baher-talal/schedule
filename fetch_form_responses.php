@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'MeetingDB2';
+$dbname = 'meetingdb';
 $username = 'root';
 $password = '';
 

@@ -1,8 +1,8 @@
-CREATE DATABASE MeetingDB;
+CREATE DATABASE meetingdb;
 
-USE MeetingDB;
+USE meetingdb;
 
-CREATE TABLE Meetings (
+CREATE TABLE meetings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
     note TEXT,
@@ -12,6 +12,7 @@ CREATE TABLE Meetings (
 
 );
 
-CREATE TABLE Responses (
+CREATE TABLE responses (
     meeting_id INT,
     response VARCHAR(50)
+);
