@@ -75,6 +75,7 @@
     <table id="responseTable" class="text-center table table-bordered table-hover">
       <thead>
         <tr>
+          <!-- <th>رقم</th> -->
           <th>الأسم</th>
           <th>نبذة</th>
           <th>التاريخ</th>
@@ -102,7 +103,7 @@
         contentType: 'application/json',
         success: function(data) {
           // alert("تم الحفظ");
-          // location.reload();
+          location.reload();
         },
         error: function(xhr, status, error) {
           console.error(xhr.responseText);
@@ -124,6 +125,7 @@
           });
           const deleteCell = row.insertCell();
           const deleteButton = document.createElement('button');
+          deleteButton.classList.add('btn', 'btn-danger');
           deleteButton.textContent = 'حذف';
           deleteButton.addEventListener('click', () => {
             // Add logic here to delete the corresponding response
