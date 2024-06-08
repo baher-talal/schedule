@@ -75,7 +75,6 @@
     <table id="responseTable" class="text-center table table-bordered table-hover">
       <thead>
         <tr>
-          <th>رقم</th>
           <th>الأسم</th>
           <th>نبذة</th>
           <th>التاريخ</th>
@@ -118,8 +117,10 @@
         data.forEach(response => {
           const row = tableBody.insertRow();
           Object.entries(response).forEach(([key, value]) => {
-            const cell = row.insertCell();
-            cell.textContent = key === 'responseStatus' ? value : value;
+            if (key !== 'id') {
+              const cell = row.insertCell();
+              cell.textContent = key === 'responseStatus' ? value : value;
+            }
           });
           const deleteCell = row.insertCell();
           const deleteButton = document.createElement('button');
