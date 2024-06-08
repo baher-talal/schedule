@@ -78,6 +78,7 @@
 
     fetchMeetingRequests();
     setInterval(fetchMeetingRequests, 1000);
+    // setInterval(function() {location.reload();}, 5000);
 
     function updateResponse(id, response) {
       $.ajax({
