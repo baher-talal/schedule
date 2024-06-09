@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'meetingdb';
+$dbname = 'nile_rcc_meetingdb';
 $username = 'root';
 $password = '';
 
@@ -17,4 +17,3 @@ $stmt->execute([$id]);
 
 $response = ['status' => 'success', 'message' => 'Meeting deleted successfully'];
 echo json_encode($response);
-?>

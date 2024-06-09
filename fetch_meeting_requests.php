@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'meetingdb';
+$dbname = 'nile_rcc_meetingdb';
 $username = 'root';
 $password = '';
 
@@ -16,4 +16,3 @@ WHERE responses.meeting_id IS NULL;
 $meetings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($meetings);
-?>

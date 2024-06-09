@@ -1,6 +1,6 @@
-CREATE DATABASE meetingdb;
+CREATE DATABASE nile_rcc_meetingdb;
 
-USE meetingdb;
+USE nile_rcc_meetingdb;
 
 CREATE TABLE meetings (
     id INT AUTO_INCREMENT PRIMARY KEY,

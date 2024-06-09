@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost'; // or your host
-$dbname = 'meetingdb';
+$dbname = 'nile_rcc_meetingdb';
 $username = 'root';
 $password = '';
 
@@ -18,4 +18,3 @@ $stmt->execute([$meetingId, $response]);
 
 $response = ['status' => 'success', 'message' => 'Response recorded successfully'];
 echo json_encode($response);
-?>
